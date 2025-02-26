@@ -11,9 +11,13 @@ let
     sapphire = "#7dc4e4";
     trans = "nil";
   };
-
 in {
   colorschemes.catppuccin.enable = true;
+  highlight = {
+    iblIndentInactive = {
+      fg = "#5c6689";
+    };
+  };
   highlightOverride = {
     LineNrAbove = {
       fg = "#bac2de";
@@ -197,6 +201,15 @@ in {
           window = {
             winblend = 0;
           };
+        };
+      };
+    };
+    gitsigns.enable = true;
+    indent-blankline = {
+      enable = true;
+      settings = {
+        indent = {
+          highlight = "iblIndentInactive";
         };
       };
     };

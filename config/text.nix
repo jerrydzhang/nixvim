@@ -1,14 +1,14 @@
 {
   plugins = {
-	treesitter = {
-		enable = true;
-		folding = true;
-		settings = {
-		highlight = {
-			enable = true;
-		};
-		};
-		};
+    treesitter = {
+      enable = true;
+      folding = true;
+      settings = {
+        highlight = {
+          enable = true;
+        };
+      };
+    };
     cmp = {
       enable = true;
       settings = {
@@ -22,10 +22,10 @@
         ];
         snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
         mapping = {
-			"<Up>" = "cmp.mapping.select_prev_item(cmp.SelectBehavior.Insert)";
-			"<Down>" = "cmp.mapping.select_next_item(cmp.SelectBehavior.Insert)";
-			"<C-p>" = "cmp.mapping.select_prev_item(cmp.SelectBehavior.Insert)";
-			"<C-n>" = "cmp.mapping.select_next_item(cmp.SelectBehavior.Insert)";
+          "<Up>" = "cmp.mapping.select_prev_item()";
+          "<Down>" = "cmp.mapping.select_next_item()";
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+          "<C-n>" = "cmp.mapping.select_next_item()";
           "<C-u>" = "cmp.mapping.scroll_docs(-4)";
           "<C-d>" = "cmp.mapping.scroll_docs(4)";
           "<C-y>" = "cmp.mapping.confirm({select = true})";
@@ -127,74 +127,74 @@
       };
     };
 
-  conform-nvim = {
-    enable = true;
-    settings = {
-      format_on_save = {
-        lsp_fallback = "fallback";
-        timeout_ms = 500;
-      };
-      notify_on_error = true;
+    conform-nvim = {
+      enable = true;
+      settings = {
+        format_on_save = {
+          lsp_fallback = "fallback";
+          timeout_ms = 500;
+        };
+        notify_on_error = true;
 
-      formatters_by_ft = {
-        nix = ["alejandra"];
+        formatters_by_ft = {
+          nix = ["alejandra"];
+        };
+      };
+    };
+    lsp = {
+      enable = true;
+      inlayHints = true;
+      keymaps = {
+        diagnostic = {
+          "<localleader>e" = "open_float";
+          "[" = "goto_prev";
+          "]" = "goto_next";
+          "<leader>do" = "setloclist";
+        };
+        lspBuf = {
+          "K" = "hover";
+          "<localleader>gD" = "declaration";
+          "<localleader>gd" = "definition";
+          "<localleader>gr" = "references";
+          "<localleader>gI" = "implementation";
+          "<localleader>gy" = "type_definition";
+          "<localleader>ca" = "code_action";
+          "<localleader>cr" = "rename";
+          "<localleader>wl" = "list_workspace_folders";
+          "<localleader>wr" = "remove_workspace_folder";
+          "<localleader>wa" = "add_workspace_folder";
+        };
+      };
+      preConfig = ''
+        vim.diagnostic.config({
+          virtual_text = false,
+          severity_sort = true,
+          float = {
+            border = 'rounded',
+            source = 'always',
+          },
+        })
+
+        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+          vim.lsp.handlers.hover,
+          {border = 'rounded'}
+        )
+
+        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+          vim.lsp.handlers.signature_help,
+          {border = 'rounded'}
+        )
+      '';
+      postConfig = ''
+        local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+        for type, icon in pairs(signs) do
+          local hl = "DiagnosticSign" .. type
+          vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        end
+      '';
+      servers = {
+        nil_ls.enable = true;
       };
     };
   };
-  lsp = {
-    enable = true;
-    inlayHints = true;
-    keymaps = {
-      diagnostic = {
-        "<localleader>e" = "open_float";
-        "[" = "goto_prev";
-        "]" = "goto_next";
-        "<leader>do" = "setloclist";
-      };
-      lspBuf = {
-        "K" = "hover";
-        "<localleader>gD" = "declaration";
-        "<localleader>gd" = "definition";
-        "<localleader>gr" = "references";
-        "<localleader>gI" = "implementation";
-        "<localleader>gy" = "type_definition";
-        "<localleader>ca" = "code_action";
-        "<localleader>cr" = "rename";
-        "<localleader>wl" = "list_workspace_folders";
-        "<localleader>wr" = "remove_workspace_folder";
-        "<localleader>wa" = "add_workspace_folder";
-      };
-    };
-    preConfig = ''
-      vim.diagnostic.config({
-        virtual_text = false,
-        severity_sort = true,
-        float = {
-          border = 'rounded',
-          source = 'always',
-        },
-      })
-
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        {border = 'rounded'}
-      )
-
-      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        {border = 'rounded'}
-      )
-    '';
-    postConfig = ''
-      local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-      end
-    '';
-    servers = {
-      nil_ls.enable = true;
-    };
-  };
-};
 }

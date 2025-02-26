@@ -1,8 +1,8 @@
 {
-plugins = {
-fzf-lua = {
-enable = true;
-keymaps = {
+  plugins = {
+    fzf-lua = {
+      enable = true;
+      keymaps = {
         "<leader><leader>" = {
           action = "files";
           options.desc = "Find File";
@@ -15,10 +15,10 @@ keymaps = {
             sort_lastused = true;
           };
         };
-		"<leader>sg" = {
-		  action = "live_grep";
-		  options.desc = "Live Grep";
-		};
+        "<leader>sg" = {
+          action = "live_grep";
+          options.desc = "Live Grep";
+        };
         "<leader>s\"" = {
           action = "registers";
           options.desc = "Registers";
@@ -36,15 +36,15 @@ keymaps = {
           options.desc = "Key Maps";
         };
       };
-};
-harpoon = {
-enable = true;
-};
-flash = {
-enable = true;
-};
-smart-splits = {
-enable = true;
-};
-};
+    };
+    harpoon = {
+      enable = true;
+    };
+    flash = {
+      enable = true;
+    };
+    smart-splits = {
+      enable = true;
+    };
+  };
 }
