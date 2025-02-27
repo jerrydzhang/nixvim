@@ -13,6 +13,15 @@
     ./rust/default.nix
   ];
 
+  extraLuaPackages = ps:
+    with ps; [
+      magick
+    ];
+
+  extraPackages = with pkgs; [
+    imagemagick
+  ];
+
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       name = "copilot-lualine";
