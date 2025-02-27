@@ -151,40 +151,25 @@
       key = "<localleader>ca";
       action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
     }
-    # {
-    #   mode = "n";
-    #   key = "<localleader>q";
-    #   action = "<cmd>lua require('telescope.builtin').diagnostics()<CR>";
-    # }
-    # {
-    #   mode = "n";
-    #   key = "<leader>gd";
-    #   action = "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>";
-    # }
-    # {
-    #   mode = "n";
-    #   key = "<leader>gr";
-    #   action = "<cmd>lua require('telescope.builtin').lsp_references()<CR>";
-    # }
-    # {
-    #   mode = "n";
-    #   key = "<leader><leader>";
-    #   action = "<cmd>lua require('telescope.builtin').find_files()<CR>";
-    # }
-    # {
-    #   mode = "n";
-    #   key = "<leader>fg";
-    #   action = "<cmd>lua require('telescope.builtin').live_grep()<CR>";
-    # }
-    # {
-    #   mode = "n";
-    #   key = "<C-p>";
-    #   action = "<cmd>lua require('telescope.builtin').oldfiles()<CR>";
-    # }
     {
       mode = "v";
       key = "<Leader>y";
       action = "\"+y";
+    }
+    {
+      mode = "n";
+      key = "s";
+      action = "<cmd>lua require('flash').jump()<CR>";
+    }
+    {
+      mode = "n";
+      key = "S";
+      action = "<cmd>lua require('flash').treesitter()<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>ff";
+      action = "<cmd>lua require('mini.files').open()<CR>";
     }
   ];
 }

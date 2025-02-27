@@ -58,6 +58,7 @@ in {
           "WhichKey"
           "WhichKeyNormal"
           "WhichKeyTitle"
+          "MiniFilesNormal"
         ];
       };
     };
