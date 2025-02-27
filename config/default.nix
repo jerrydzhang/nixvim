@@ -8,6 +8,7 @@
     ./dashboard.nix
     ./text.nix
     ./plugins.nix
+    ./debugging.nix
     ./markdown/default.nix
     ./python/default.nix
     ./rust/default.nix
