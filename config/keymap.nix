@@ -171,5 +171,50 @@
       key = "<leader>ff";
       action = "<cmd>lua require('mini.files').open()<CR>";
     }
+    {
+      mode = "n";
+      key = "<localleader>mi";
+      action = "<cmd>MoltenInit<CR>";
+      options = {
+        silent = true;
+        desc = "Initialize the plugin";
+      };
+    }
+    {
+      mode = "n";
+      key = "<localleader>me";
+      action = "<cmd>MoltenEvaluateOperator<CR>";
+      options = {
+        silent = true;
+        desc = "run operator selection";
+      };
+    }
+    {
+      mode = "n";
+      key = "<localleader>ml";
+      action = "<cmd>MoltenEvaluateLine<CR>";
+      options = {
+        silent = true;
+        desc = "evaluate line";
+      };
+    }
+    {
+      mode = "n";
+      key = "<localleader>mr";
+      action = "<cmd>MoltenReevaluateCell<CR>";
+      options = {
+        silent = true;
+        desc = "re-evaluate cell";
+      };
+    }
+    {
+      mode = "v";
+      key = "<localleader>me";
+      action = "<cmd><C-u>MoltenEvaluateVisual<CR>gv";
+      options = {
+        silent = true;
+        desc = "evaluate visual selection";
+      };
+    }
   ];
 }

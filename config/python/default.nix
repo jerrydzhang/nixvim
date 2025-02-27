@@ -1,5 +1,6 @@
 {
-imports = [
-./language.nix
-];
+  imports = [
+    ./language.nix
+    ./notebook.nix
+  ];
 }
