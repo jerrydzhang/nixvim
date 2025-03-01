@@ -12,6 +12,7 @@
     ./markdown/default.nix
     ./python/default.nix
     ./rust/default.nix
+    ./latex/default.nix
   ];
 
   extraLuaPackages = ps:

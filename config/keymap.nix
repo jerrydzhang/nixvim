@@ -216,5 +216,23 @@
         desc = "evaluate visual selection";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>hh";
+      action = "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>";
+      options = {
+        silent = true;
+        desc = "toggle harpoon quick menu";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>hm";
+      action = "<cmd>lua require('harpoon.mark').add_file()<CR>";
+      options = {
+        silent = true;
+        desc = "add file to harpoon";
+      };
+    }
   ];
 }
