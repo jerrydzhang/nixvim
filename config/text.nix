@@ -6,6 +6,9 @@
       settings = {
         highlight = {
           enable = true;
+          disable = [
+            "latex"
+          ];
         };
       };
     };
