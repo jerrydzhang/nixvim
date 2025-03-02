@@ -12,10 +12,16 @@ let
     trans = "nil";
   };
 in {
-  colorschemes.catppuccin.enable = true;
-  highlight = {
-    iblIndentInactive = {
-      fg = "#5c6689";
+  colorschemes.catppuccin = {
+    enable = true;
+    settings = {
+      custom_highlights = ''
+        function(highlights)
+          return {
+          CustomIblIndent = { fg = highlights.overlay1, style = {} },
+          }
+        end
+      '';
     };
   };
   highlightOverride = {
@@ -59,6 +65,8 @@ in {
           "WhichKeyNormal"
           "WhichKeyTitle"
           "MiniFilesNormal"
+          "CustomIblIndent"
+          "IblIndent"
         ];
       };
     };
@@ -209,9 +217,7 @@ in {
     indent-blankline = {
       enable = true;
       settings = {
-        indent = {
-          highlight = "iblIndentInactive";
-        };
+        indent.highlight = "CustomIblIndent";
       };
     };
   };

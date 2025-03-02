@@ -113,6 +113,8 @@
         suggestion.auto_trigger = true;
       };
     };
+    nui.enable = true;
+    dressing.enable = true;
     avante = {
       enable = true;
       settings = {

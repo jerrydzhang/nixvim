@@ -21,6 +21,7 @@
     ];
 
   extraPackages = with pkgs; [
+    (pkgs.python3.withPackages (p: [p.jupytext]))
     imagemagick
   ];
 

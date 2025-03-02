@@ -12,6 +12,7 @@
     };
     lz-n.enable = true;
     hydra.enable = true;
+    colorizer.enable = true;
     obsidian = {
       enable = true;
       lazyLoad.settings.ft = "markdown";
