@@ -112,6 +112,18 @@
   plugins = {
     molten = {
       enable = true;
+      python3Dependencies = p:
+        with p; [
+          pynvim
+          jupyter-client
+          cairosvg
+          ipython
+          nbformat
+          pnglatex
+          plotly
+          kaleido
+          pyperclip
+        ];
 
       # Configuration settings for molten.nvim. More examples at https://github.com/nix-community/nixvim/blob/main/plugins/by-name/molten/default.nix#L191
       settings = {
