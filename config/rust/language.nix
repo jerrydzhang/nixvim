@@ -1,37 +1,34 @@
 {
   plugins = {
+    bacon.enable = true;
     conform-nvim = {
       enable = true;
-      settings = {
-        formatters_by_ft = {
-          rust = ["rustfmt"];
-        };
-      };
+      settings = {formatters_by_ft.rust = ["rustfmt"];};
     };
-    lsp.servers.rust_analyzer = {
+    # dap-lldb.enable = true;
+    rustaceanvim = {
       enable = true;
-      installCargo = true;
-      installRustc = true;
       settings = {
-        checkOnSave = true;
-        check = {
-          command = "clippy";
-        };
-        inlayHints = {
-          enable = true;
-          showParameterNames = true;
-          parameterHintsPrefix = "<- ";
-          otherHintsPrefix = "=> ";
-        };
-        procMacro = {
-          enable = true;
-        };
-        files = {
-          exclude = [
-            "**/target/**"
-            "**/.git/**"
-            "**/.direnv/**"
-          ];
+        # server = {
+        #   dap.adapters.lldb = {
+        #     type = "server";
+        #     port = "${''$''}{port}";
+        #     executable = {
+        #       command = "codelldb";
+        #       args = ["--port" "${''$''}{port}"];
+        #     };
+        #   };
+        # };
+        tools.enable_clippy = true;
+        server = {
+          default_settings = {
+            inlayHints = {lifetimeElisionHints = {enable = "always";};};
+            rust-analyzer = {
+              cargo = {allFeatures = true;};
+              check = {command = "clippy";};
+              files = {excludeDirs = ["target" ".git" ".cargo" ".github" ".direnv"];};
+            };
+          };
         };
       };
     };
