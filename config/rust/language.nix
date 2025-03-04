@@ -1,5 +1,13 @@
 {
   plugins = {
+    conform-nvim = {
+      enable = true;
+      settings = {
+        formatters_by_ft = {
+          rust = ["rustfmt"];
+        };
+      };
+    };
     lsp.servers.rust_analyzer = {
       enable = true;
       installCargo = true;

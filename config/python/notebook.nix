@@ -57,7 +57,7 @@
     {
       mode = "n";
       key = "<localleader>rc";
-      action = ''<cmd>lua require("quarto.runner").run_cell<CR>'';
+      action = ''<cmd>lua require("quarto.runner").run_cell()<CR>'';
       options = {
         desc = "run cell";
         silent = true;
@@ -66,7 +66,7 @@
     {
       mode = "n";
       key = "<localleader>ra";
-      action = ''<cmd>lua require("quarto.runner").run_above<CR>'';
+      action = ''<cmd>lua require("quarto.runner").run_above()<CR>'';
       options = {
         desc = "run cell and above";
         silent = true;
@@ -75,7 +75,7 @@
     {
       mode = "n";
       key = "<localleader>rA";
-      action = ''<cmd>lua require("quarto.runner").run_all<CR>'';
+      action = ''<cmd>lua require("quarto.runner").run_all()<CR>'';
       options = {
         desc = "run all cells";
         silent = true;
@@ -84,7 +84,7 @@
     {
       mode = "n";
       key = "<localleader>rl";
-      action = ''<cmd>lua require("quarto.runner").run_line<CR>'';
+      action = ''<cmd>lua require("quarto.runner").run_line()<CR>'';
       options = {
         desc = "run line";
         silent = true;
@@ -93,7 +93,7 @@
     {
       mode = "v";
       key = "<localleader>r";
-      action = ''<cmd>lua require("quarto.runner")runner.run_range<CR>'';
+      action = ''<cmd>lua require("quarto.runner")runner.run_range()<CR>'';
       options = {
         desc = "run visual range";
         silent = true;
@@ -152,7 +152,6 @@
     };
     quarto = {
       enable = true;
-      lazyLoad.settings.ft = ["quarto" "markdown"];
       settings = {
         lspFeatures = {
           languages = ["python"];
@@ -174,11 +173,6 @@
     jupytext = {
       enable = true;
       settings = {
-        # python = {
-        #   extension = "md";
-        #   style = "markdown";
-        #   force_ft = "markdown";
-        # };
         style = "markdown";
         output_extension = "md";
         force_ft = "markdown";
