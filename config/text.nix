@@ -146,6 +146,7 @@
         };
       };
     };
+
     lsp = {
       enable = true;
       inlayHints = true;
@@ -172,7 +173,7 @@
       };
       preConfig = ''
         vim.diagnostic.config({
-          virtual_text = false,
+          virtual_text = true,
           severity_sort = true,
           float = {
             border = 'rounded',

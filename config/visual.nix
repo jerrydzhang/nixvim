@@ -220,5 +220,11 @@ in {
         indent.highlight = "CustomIblIndent";
       };
     };
+    trouble = {
+      enable = true;
+      # settings = {
+      #   auto_preview = true;
+      # };
+    };
   };
 }

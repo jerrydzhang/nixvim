@@ -5,7 +5,6 @@
       enable = true;
       settings = {formatters_by_ft.rust = ["rustfmt"];};
     };
-    # dap-lldb.enable = true;
     rustaceanvim = {
       enable = true;
       settings = {
