@@ -14,6 +14,9 @@
     };
     treesitter-context = {
       enable = true;
+      settings = {
+        multiline_threshold = 2;
+      };
     };
     cmp = {
       enable = true;
