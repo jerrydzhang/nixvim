@@ -12,6 +12,9 @@
         };
       };
     };
+    treesitter-context = {
+      enable = true;
+    };
     cmp = {
       enable = true;
       settings = {
