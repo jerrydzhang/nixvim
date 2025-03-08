@@ -1,3 +1,3 @@
 {
-extraFiles."ftplugin/markdown.lua".source = ./markdown.lua;
+  extraFiles."ftplugin/markdown.lua".source = ./markdown.lua;
 }

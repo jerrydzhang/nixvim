@@ -7,10 +7,29 @@
         highlight = {
           enable = true;
           disable = [
-            "latex"
+            # "latex"
           ];
         };
       };
+    };
+    treesitter-textobjects = {
+      enable = true;
+      select = {
+        enable = true;
+        lookahead = true;
+        keymaps = {
+          "af" = "@function.outer";
+          "if" = "@function.inner";
+          "ac" = "@class.outer";
+          "ic" = "@class.inner";
+        };
+        # selection_modes = {
+        # 	"@function.outer" = "v";
+        # 	"@function.inner" = "v";
+        # };
+      };
+      swap = {enable = true;};
+      move = {enable = true;};
     };
     treesitter-context = {
       enable = true;
@@ -128,7 +147,14 @@
         auto_suggestions_provider = null;
       };
     };
-    luasnip.enable = true;
+    luasnip = {
+      enable = true;
+      fromLua = [
+        {
+          paths = ./snippets;
+        }
+      ];
+    };
     none-ls = {
       enable = true;
       sources.formatting = {

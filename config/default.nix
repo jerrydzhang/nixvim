@@ -13,6 +13,7 @@
     ./python/default.nix
     ./rust/default.nix
     ./latex/default.nix
+    ./lua/default.nix
   ];
 
   extraLuaPackages = ps:

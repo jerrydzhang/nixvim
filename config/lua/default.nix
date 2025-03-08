@@ -1,5 +1,5 @@
 {
   imports = [
-    ./keymap.nix
+    ./language.nix
   ];
 }
