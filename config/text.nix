@@ -39,6 +39,7 @@
     };
     cmp = {
       enable = true;
+      luaConfig.pre = "local luasnip = require('luasnip')";
       settings = {
         autoEnableSources = true;
         performance = {debounce = 150;};
@@ -58,10 +59,10 @@
           "<C-d>" = "cmp.mapping.scroll_docs(4)";
           "<C-y>" = "cmp.mapping.confirm({select = true})";
           "<CR>" = "cmp.mapping.confirm({select = false})";
-          "<C-f>" = ''
+          "<Tab>" = ''
             cmp.mapping(
               function(fallback)
-                if luasnip.jumpable(1) then
+                if luasnip.locally_jumpable(1) then
                   luasnip.jump(1)
                 else
                   fallback()
@@ -70,11 +71,10 @@
               { "i", "s" }
             )
           '';
-
-          "<C-b>" = ''
+          "<S-Tab>" = ''
             cmp.mapping(
               function(fallback)
-                if luasnip.jumpable(-1) then
+                if luasnip.locally_jumpable(-1) then
                   luasnip.jump(-1)
                 else
                   fallback()
@@ -83,7 +83,19 @@
               { "i", "s" }
             )
           '';
-          "<Tab>" = ''
+          "<C-e>" = ''
+            cmp.mapping(
+              function(fallback)
+                if luasnip.choice_active() then
+                  luasnip.change_choice(1)
+                else
+                  fallback()
+                end
+              end,
+              { "i", "s" }
+            )
+          '';
+          "<C-f>" = ''
             cmp.mapping(
               function(fallback)
                 local col = vim.fn.col('.') - 1
@@ -99,8 +111,7 @@
               { "i", "s" }
             )
           '';
-
-          "<S-Tab>" = ''
+          "<C-b>" = ''
             cmp.mapping(
               function(fallback)
                 if cmp.visible() then
@@ -151,9 +162,14 @@
       enable = true;
       fromLua = [
         {
-          paths = ./snippets;
+          # paths = ./snippets;
+          paths = "~/modules/nixvim/config/snippets";
         }
       ];
+      settings = {
+        enable_autosnippets = true;
+        cut_selection_keys = "<tab>";
+      };
     };
     none-ls = {
       enable = true;
